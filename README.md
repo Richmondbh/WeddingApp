@@ -101,7 +101,7 @@ page is redisplayed with the messages produced by the Data Annotations.
 ## Limitations
 
 Guest responses exist only while the application is running and are cleared on
-restart. This is intentional — persistence with Entity Framework Core is
+restart. This is intentional because persistence with Entity Framework Core is
 introduced in a later assignment.
 
 ## Author
