@@ -1,0 +1,58 @@
+﻿@page
+@model WeddingApp.Pages.Guests.EditGuestModel
+@{
+    ViewData["Title"] = "Edit guest";
+}
+
+<h1 class="event-title">Edit Guest</h1>
+
+<div class="row">
+    <div class="col-md-7">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @* The id is not shown to the user but must travel with the form,
+               otherwise the service cannot tell which guest to update. *@
+            <input type="hidden" asp-for="Guest.Id" />
+
+            <div class="mb-3">
+                <label asp-for="Guest.Name" class="form-label"></label>
+                <input asp-for="Guest.Name" class="form-control" />
+                <span asp-validation-for="Guest.Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Guest.Email" class="form-label"></label>
+                <input asp-for="Guest.Email" class="form-control" />
+                <span asp-validation-for="Guest.Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <span class="form-label d-block">Will you attend?</span>
+
+                <div class="form-check">
+                    <input asp-for="Guest.WillAttend" type="radio" value="true"
+                           id="attendYes" class="form-check-input" />
+                    <label for="attendYes" class="form-check-label">Yes</label>
+                </div>
+
+                <div class="form-check">
+                    <input asp-for="Guest.WillAttend" type="radio" value="false"
+                           id="attendNo" class="form-check-input" />
+                    <label for="attendNo" class="form-check-label">No</label>
+                </div>
+
+                <span asp-validation-for="Guest.WillAttend" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Guest.Message" class="form-label"></label>
+                <textarea asp-for="Guest.Message" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Guest.Message" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <a asp-page="./GuestList" class="btn btn-outline-secondary">Cancel</a>
+        </form>
+    </div>
+</div>

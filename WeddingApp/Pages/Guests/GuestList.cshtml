@@ -1,0 +1,69 @@
+﻿@page
+@model WeddingApp.Pages.Guests.GuestListModel
+@{
+    ViewData["Title"] = "Guest list";
+}
+
+<h1 class="event-title">Guest List</h1>
+
+@if (!string.IsNullOrEmpty(Model.StatusMessage))
+{
+    <div class="alert alert-info">@Model.StatusMessage</div>
+}
+
+@if (Model.Guests.Count == 0)
+{
+    <p>No one has responded to the invitation yet.</p>
+}
+else
+{
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Attending</th>
+                <th>Message</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Guest guest in Model.Guests)
+            {
+                <tr>
+                    <td>@guest.Name</td>
+                    <td>@guest.Email</td>
+                    <td>
+                        @if (guest.WillAttend == true)
+                        {
+                            <span class="badge bg-success">Yes</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">No</span>
+                        }
+                    </td>
+                    <td>@guest.Message</td>
+                    <td class="text-nowrap">
+                        <a asp-page="./EditGuest" asp-route-id="@guest.Id"
+                           class="btn btn-sm btn-primary">Edit</a>
+
+                        <form method="post" asp-page-handler="Delete"
+                              asp-route-id="@guest.Id" class="d-inline">
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p>
+        Total guests: <strong>@Model.Guests.Count</strong> &nbsp;|&nbsp;
+        Attending: <strong>@Model.NumOfAttending</strong>
+    </p>
+}
+
+<a asp-page="/Rsvp" class="btn btn-outline-primary">Add a response</a>

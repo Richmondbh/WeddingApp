@@ -8,7 +8,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <div class="card">
+        <div class="card mb-4">
             <div class="card-body">
                 <h2 class="card-title h4">Event details</h2>
 
@@ -25,5 +25,18 @@
                 <a asp-page="/Rsvp" class="btn btn-primary">Respond to the invitation</a>
             </div>
         </div>
+
+        <h2 class="h4">Notices and Updates</h2>
+
+        <ul class="list-group mb-4">
+            @foreach (Notice notice in Model.Notices)
+            {
+                <li class="list-group-item">
+                    <strong>@notice.Heading</strong>
+                    <span class="text-muted">— @notice.PublishedOn</span>
+                    <p class="mb-0">@notice.Text</p>
+                </li>
+            }
+        </ul>
     </div>
 </div>
