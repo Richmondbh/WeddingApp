@@ -1,0 +1,30 @@
+﻿@page
+@model ConfirmationModel
+@{
+    ViewData["Title"] = "Thank you";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-7 text-center">
+        <h1 class="event-title">Thank You!</h1>
+
+        @if (Model.IsAttending)
+        {
+            <div class="alert alert-success">
+                Thank you, @Model.GuestName. We are delighted that you will be
+                joining us, and we look forward to celebrating with you.
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-secondary">
+                Thank you for letting us know, @Model.GuestName. We are sorry you
+                cannot make it, and you will be missed on the day.
+            </div>
+        }
+
+        <p>Your response has been registered.</p>
+
+        <a asp-page="/Index" class="btn btn-primary">Back to the home page</a>
+    </div>
+</div>

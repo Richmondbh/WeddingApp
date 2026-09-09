@@ -18,7 +18,7 @@ namespace WeddingApp.Services
         {
             weddingEvent = new Event
             {
-                Title = "My 7 years Anniversay!",
+                Title = "Our Wedding Anniversay!",
                 Date = "Novermber 26, 2026",
                 Time = "17:00",
                 Location = "Arena, Östersund, Sweden",
@@ -32,21 +32,21 @@ namespace WeddingApp.Services
             {
                 new GalleryImage
                 {
-                    FileName = "gallery-1.jpg",
+                    FileName = "proposal.jpg",
                     Caption = "The proposal",
                     AltText = "The couple on the evening of the proposal"
                 },
                 new GalleryImage
                 {
-                    FileName = "gallery-2.jpg",
+                    FileName = "venue.jpg",
                     Caption = "The venue",
                     AltText = "The garden outside Springfield Wedding Hall"
                 },
                 new GalleryImage
                 {
-                    FileName = "gallery-3.jpg",
-                    Caption = "The engagement party",
-                    AltText = "Friends and family at the engagement party"
+                    FileName = "wedding.jpg",
+                    Caption = "The Wedding party",
+                    AltText = "Friends and family at the anniversary party"
                 }
             };
 

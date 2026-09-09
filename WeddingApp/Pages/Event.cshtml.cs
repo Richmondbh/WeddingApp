@@ -5,18 +5,22 @@ using WeddingApp.Services;
 namespace WeddingApp.Pages
 {
     /// <summary>
-    /// Page model for the home page. It only prepares the event details so that
-    /// the welcome text can mention the date and the RSVP deadline.
+    /// Page model for the event page. It reads the event details from the shared
+    /// service and exposes the number of guests who have answered so far.
     /// </summary>
-    public class IndexModel : PageModel
+    public class EventModel : PageModel
     {
         private readonly IEventService eventService;
+        private readonly IGuestManager guestManager;
 
         public Event EventInfo { get; private set; }
 
-        public IndexModel(IEventService eventService)
+        public int NumOfResponses => guestManager.NumOfGuests;
+
+        public EventModel(IEventService eventService, IGuestManager guestManager)
         {
             this.eventService = eventService;
+            this.guestManager = guestManager;
         }
 
         public void OnGet()

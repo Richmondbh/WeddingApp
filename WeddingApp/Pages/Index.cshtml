@@ -5,6 +5,29 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="event-title">We Are Getting Married!</h1>
+
+    <p>
+        We are delighted to invite you to celebrate this special occasion with us.
+    </p>
+
+    <p>
+        Richmond and Keziah met in Östersund 7 years ago and have been more or
+        less inseparable ever since. After a long cohabiting, a great deal of
+        discussion about cake, and one very patient florist, the day is finally
+        set.
+    </p>
+
+    <p>@Model.EventInfo.Description</p>
+
+    <p>
+        Please click the <strong>Event</strong> button to see all the details, and
+        let us know whether you will be able to join us. Kindly RSVP by
+        <strong>@Model.EventInfo.RsvpDeadline</strong>.
+    </p>
+
+    <p>We truly hope you can be part of our big day!</p>
+
+    <a asp-page="/Event" class="btn btn-primary">Go to Event</a>
+    <a asp-page="/Rsvp" class="btn btn-outline-primary">Respond to the invitation</a>
 </div>

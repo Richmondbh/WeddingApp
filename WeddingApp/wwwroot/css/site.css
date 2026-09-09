@@ -29,3 +29,14 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+.event-title {
+    color: #2e8b57;
+    font-family: "Brush Script MT", "Georgia", serif;
+    font-size: 40px;
+}
+.gallery-image {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
