@@ -19,12 +19,12 @@ namespace WeddingApp.Services
             weddingEvent = new Event
             {
                 Title = "Our Wedding Anniversay!",
-                Date = "Novermber 26, 2026",
+                Date = "July 14, 2027",
                 Time = "17:00",
                 Location = "Arena, Östersund, Sweden",
                 Description = "An evening of dinner, music and dancing with the "
                     + "people who matter most to us.",
-                RsvpDeadline = "October 1, 2026"
+                RsvpDeadline = "March 1, 2027"
             };
 
             
@@ -56,15 +56,15 @@ namespace WeddingApp.Services
                 {
                     Heading = "Venue confirmed",
                     Text = "The ceremony and the dinner will both be held at "
-                        + "Ötersund Area.",
-                    PublishedOn = "April 7, 2027"
+                        + "Östersund Arena.",
+                    PublishedOn = "September 14, 2026"
                 },
                 new Notice
                 {
                     Heading = "Schedule updated",
                     Text = "The ceremony starts at 17:00 and dinner is served "
                         + "at 19:00.",
-                    PublishedOn = "April 12, 2026"
+                    PublishedOn = " September 12, 2026"
                 }
             };
         }

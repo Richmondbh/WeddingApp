@@ -1,57 +1,80 @@
-﻿<!DOCTYPE html>
+﻿@*
+    Shared layout used by every page: the header with the navigation menu,
+    the main content area, and the footer.
+*@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WeddingApp</title>
-    <script type="importmap"></script>
+    <title>@ViewData["Title"] &ndash; Richmond &amp; Keziah (FLOR27)</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/WeddingApp.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-page="/Index">WeddingApp</a>
-                <div class="navbar-collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Event">Event</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Gallery">Gallery</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Rsvp">RSVP</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Guests/GuestList">Guests</a>
-                        </li>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="site-mark" asp-page="/Index">Richmond &amp; Keziah (FLOR27) </a>
+
+            <nav aria-label="Main menu">
+                <ul class="site-nav">
+                    <li><a asp-page="/Index">Home</a></li>
+                    <li><a asp-page="/Event">Event</a></li>
+                    <li><a asp-page="/Gallery">Gallery</a></li>
+                    <li><a asp-page="/Rsvp">RSVP</a></li>
+                    <li><a asp-page="/Guests/GuestList">Guests</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h2 class="footer-heading">The celebration</h2>
+                    <p>
+                        20 July 2027 at 17:00<br />
+                        Hope Wedding Hall<br />
+                        Östersund, Sweden
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="footer-heading">Questions</h2>
+                    <p>
+                        <a href="mailto:hej@@richkez.se">hej@@richkez.se</a><br />
+                        +46 76 931 68 71
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="footer-heading">Pages</h2>
+                    <ul class="footer-links">
+                        <li><a asp-page="/Event">Event details</a></li>
+                        <li><a asp-page="/Gallery">Photo gallery</a></li>
+                        <li><a asp-page="/Rsvp">Respond to the invitation</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - WeddingApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <div class="footer-base">
+                <p>&copy; 2026 Richmond &amp; Keziah ((FLOR27) </p>
+                <p>
+                    Developed by
+                    <a href="https://rhbdigital.se" target="_blank" rel="noopener">
+                        RHB Digital Solutions
+                    </a>
+                </p>
+            </div>
         </div>
     </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
