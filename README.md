@@ -30,11 +30,11 @@ constraints set by the assignment.
 
 | Home | Event |
 | --- | --- |
-| ![Home page with the welcome message and invitation text](docs/images/home.png) | ![Event page showing date, time, location and notices](docs/images/event.png) |
+| ![Home page with the welcome message and invitation text](WeddingApp/docs/screenshots/home.png) | ![Event page showing date, time, location and notices](WeddingApp/docs/screenshots/event.png) |
 
 | Gallery | Guest list |
 | --- | --- |
-| ![Photo gallery with three images in a row](docs/images/photo.png) | ![Guest list table with edit and delete actions](docs/images/guestList.png) |
+| ![Photo gallery with three images in a row](WeddingApp/docs/screenshots/photo.png) | ![Guest list table with edit and delete actions](WeddingApp/docs/screenshots/guestList.png) |
 
 ## Project structure
 
