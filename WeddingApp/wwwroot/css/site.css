@@ -1,4 +1,4 @@
-/* ==========================================================================
+/* --------------------------------------------------------------------------------
    Wedding website - site styles
    Palette, typography and layout for the whole application. Bootstrap is
    loaded first and is overridden here.
@@ -159,6 +159,10 @@ h2 {
     }
 
         .site-nav a:hover {
+            color: var(--ink);
+            border-bottom-color: var(--gold);
+        }
+        .site-nav a.active {
             color: var(--ink);
             border-bottom-color: var(--gold);
         }

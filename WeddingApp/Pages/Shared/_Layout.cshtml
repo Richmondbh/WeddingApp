@@ -2,6 +2,22 @@
     Shared layout used by every page: the header with the navigation menu,
     the main content area, and the footer.
 *@
+
+@{
+    string currentPage = ViewContext.RouteData.Values["page"] as string;
+
+    bool IsActive(string pagePath)
+    {
+        if (string.IsNullOrEmpty(currentPage))
+        {
+            return false;
+        }
+
+        // The second test keeps "Guests" highlighted while editing a guest.
+        return currentPage == pagePath
+            || currentPage.StartsWith(pagePath + "/");
+    }
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,11 +35,27 @@
 
             <nav aria-label="Main menu">
                 <ul class="site-nav">
-                    <li><a asp-page="/Index">Home</a></li>
-                    <li><a asp-page="/Event">Event</a></li>
-                    <li><a asp-page="/Gallery">Gallery</a></li>
-                    <li><a asp-page="/Rsvp">RSVP</a></li>
-                    <li><a asp-page="/Guests/GuestList">Guests</a></li>
+                    <li>
+                        <a asp-page="/Index" class="@(IsActive("/Index") ? "active" : null)"
+                           aria-current="@(IsActive("/Index") ? "page" : null)">Home</a>
+                    </li>
+                    <li>
+                        <a asp-page="/Event" class="@(IsActive("/Event") ? "active" : null)"
+                           aria-current="@(IsActive("/Event") ? "page" : null)">Event</a>
+                    </li>
+                    <li>
+                        <a asp-page="/Gallery" class="@(IsActive("/Gallery") ? "active" : null)"
+                           aria-current="@(IsActive("/Gallery") ? "page" : null)">Gallery</a>
+                    </li>
+                    <li>
+                        <a asp-page="/Rsvp" class="@(IsActive("/Rsvp") ? "active" : null)"
+                           aria-current="@(IsActive("/Rsvp") ? "page" : null)">RSVP</a>
+                    </li>
+                    <li>
+                        <a asp-page="/Guests/GuestList"
+                           class="@(IsActive("/Guests") ? "active" : null)"
+                           aria-current="@(IsActive("/Guests") ? "page" : null)">Guests</a>
+                    </li>
                 </ul>
             </nav>
         </div>
