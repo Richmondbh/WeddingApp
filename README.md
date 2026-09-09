@@ -4,7 +4,7 @@ A wedding website built with ASP.NET Core Razor Pages. Guests can read about the
 event, browse a small photo gallery and respond to the invitation. All data is
 held in memory and there is no database.
 
-Coursework for Programming in C# III at Malmö University .
+Coursework for Programming in C# III at Malmö University.
 
 ## Built with
 
@@ -19,12 +19,22 @@ constraints set by the assignment.
 ## Features
 
 - Home page introducing the couple and the celebration
-- Event page with title, date, time and location
+- Event page with title, date, time, location and a notices section
 - Photo gallery served from local images
 - RSVP form with server-side validation via Data Annotations
 - Confirmation page shown after a successful submission
 - Guest list with full create, read, update and delete
 - Shared layout with a navigation bar and footer across every page
+
+## Screenshots
+
+| Home | Event |
+| --- | --- |
+| ![Home page with the welcome message and invitation text](docs/images/home.png) | ![Event page showing date, time, location and notices](docs/images/event.png) |
+
+| Gallery | Guest list |
+| --- | --- |
+| ![Photo gallery with three images in a row](docs/images/photo.png) | ![Guest list table with edit and delete actions](docs/images/guestList.png) |
 
 ## Project structure
 
@@ -58,7 +68,7 @@ WeddingApp/
 
 ## Running the project
 
-Requires the .NET 8 SDK.
+Requires the .NET 9 SDK.
 
 ```bash
 git clone https://github.com/Richmondbh/WeddingApp.git
@@ -97,6 +107,10 @@ field a genuine unanswered state.
 **Validation runs on the server.** With client-side validation scripts removed,
 invalid input is caught by `ModelState.IsValid` in the `OnPost` handler and the
 page is redisplayed with the messages produced by the Data Annotations.
+
+**Deletion happens over POST.** Each row in the guest list submits a small form
+rather than following a link, so deleting is not something a prefetch or a
+bookmarked URL can trigger, and the request carries an antiforgery token.
 
 ## Limitations
 
