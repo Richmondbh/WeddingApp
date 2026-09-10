@@ -27,7 +27,7 @@ namespace WeddingApp.Models
         [Display(Name = "Will you attend?")]
         public bool? WillAttend { get; set; }
 
-        [MaxLength(200, ErrorMessage = "The message may not exceed 200 characters.")]
+        [MaxLength(250, ErrorMessage = "The message may not exceed 250 characters.")]
         [Display(Name = "Message to the hosts")]
         public string Message { get; set; }
     }
